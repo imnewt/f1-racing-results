@@ -1,19 +1,10 @@
-import { Race } from 'models/Race';
-import { useEffect, useState } from 'react';
+import useSWR from 'swr';
+
+import { fetchRaces } from 'apis/races';
+import { BASE_URL } from 'utils/constants';
 
 export const useFetchRaces = (season: string) => {
-  const [races, setRaces] = useState<Race[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { data, isValidating } = useSWR(`${BASE_URL}/${season}.json`, fetchRaces(season));
 
-  useEffect(() => {
-    setIsLoading(true);
-    fetch(`https://ergast.com/api/f1/${season}.json`)
-      .then((res) => res.json())
-      .then((result) => {
-        setRaces(result.MRData.RaceTable.Races);
-        setIsLoading(false);
-      });
-  }, [season]);
-
-  return { races, isLoading };
+  return { races: data?.MRData.RaceTable.Races, isLoading: isValidating };
 };

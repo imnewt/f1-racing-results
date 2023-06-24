@@ -1,0 +1,85 @@
+.team-line {
+    width: 0.125rem;
+    height: 2rem;
+    border-radius: 0.25rem;
+}
+
+.team-mercedes {
+    background-color: #5da232;
+}
+
+.team-ferrari {
+    background-color: #b651a3;
+}
+
+.team-red_bull {
+    background-color: #0600ef;
+}
+
+.team-mclaren {
+    background-color: #ff9800;
+}
+
+.team-alpine {
+    background-color: #0090ff;
+}
+
+.team-renault {
+    background-color: #fff500;
+}
+
+.team-lotus_f1 {
+    background-color: #ffb800;
+}
+
+.team-alphatauri {
+    background-color: #2b4562;
+}
+
+.team-toro_rosso {
+    background-color: #0032FF;
+}
+
+.team-aston_martin {
+    background-color: #3b6a65;
+}
+
+.team-caterham {
+    background-color: #006f62;
+}
+
+.team-racing_point {
+    background-color: #f596c8;
+}
+
+.team-force_india {
+    background-color: #ff5f0e;
+}
+
+.team-williams {
+    background-color: #005aff;
+}
+
+.team-alfa{
+    background-color: #371e1e;
+}
+
+.team-sauber {
+    background-color: #900000;
+}
+
+.team-bmw_sauber {
+    background-color: #0166B1;
+}
+
+.team-haas {
+    background-color: #722626;
+}
+
+.team-marussia {
+    background-color: #fd1f32;
+}
+
+.team-manor {
+    background-color: #e4591e;
+}
