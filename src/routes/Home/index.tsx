@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Select, Typography } from 'antd';
 
-import { Drivers, Races } from 'components';
+import { Drivers, Races, Constructors } from 'components';
 import Tab from './components/Tab';
 import { FIRST_SEASON, CURRENT_SEASON } from 'utils/constants';
 
@@ -30,7 +30,7 @@ const Home = () => {
       case 'drivers':
         return <Drivers season={season} />;
       case 'constructors':
-        return <Races season={season} />;
+        return <Constructors season={season} />;
       case 'races':
       default:
         return <Races season={season} />;
