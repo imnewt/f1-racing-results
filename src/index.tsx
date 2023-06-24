@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import Home from 'routes/Home';
 
+import './styles/styles.css';
 import './styles/tailwind.output.css';
 
 const router = createBrowserRouter([

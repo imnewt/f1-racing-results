@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Select, Typography } from 'antd';
-import { Races } from 'components';
+
+import { Drivers, Races } from 'components';
 import Tab from './components/Tab';
+import { FIRST_SEASON, CURRENT_SEASON } from 'utils/constants';
 
 const { Title, Text } = Typography;
 
-const FIRST_SEASON = 1950;
-const CURRENT_SEASON = new Date().getFullYear();
 const SEASON_LIST = Array.from({ length: CURRENT_SEASON - FIRST_SEASON + 1 }, (_, index) => ({
   value: CURRENT_SEASON - index + '',
   label: CURRENT_SEASON - index + '',
@@ -28,7 +28,7 @@ const Home = () => {
   const renderContentByTab = () => {
     switch (currentTab) {
       case 'drivers':
-        return <Races season={season} />;
+        return <Drivers season={season} />;
       case 'constructors':
         return <Races season={season} />;
       case 'races':
