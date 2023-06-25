@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Spin, Typography } from 'antd';
+import { Badge, List, Spin, Typography } from 'antd';
 
 import { Race } from 'models/Race';
 
@@ -8,15 +8,20 @@ const { Text } = Typography;
 export interface RaceListProps {
   races: Race[];
   isLoading: boolean;
+  onRaceClick: (round: string, country: string, circuit: string) => void;
 }
 
-const RaceList: React.FC<RaceListProps> = ({ races, isLoading }: RaceListProps) => {
+const RaceList: React.FC<RaceListProps> = ({ races, isLoading, onRaceClick }: RaceListProps) => {
   return (
     <Spin spinning={isLoading}>
       <List
         dataSource={races}
         renderItem={(race) => (
-          <div key={race.round} className="flex items-center hover:bg-blue-100 cursor-pointer px-4 py-2">
+          <div
+            key={race.round}
+            onClick={() => onRaceClick(race.round, race.Circuit.Location.country, race.Circuit.circuitName)}
+            className="flex items-center hover:bg-blue-100 cursor-pointer px-4 py-2"
+          >
             <div className="text-center w-6">
               <Text>{race.round}.</Text>
             </div>
@@ -35,7 +40,10 @@ const RaceList: React.FC<RaceListProps> = ({ races, isLoading }: RaceListProps) 
             <div className="text-center w-8">
               <Text className="font-bold">{new Date(race.date).getDate()}</Text>
               <br />
-              <Text>{new Date(race.date).toLocaleString('default', { month: 'short' })}</Text>
+              <Badge
+                count={new Date(race.date).toLocaleString('default', { month: 'short' })}
+                style={{ backgroundColor: '#1890FF' }}
+              />
             </div>
           </div>
         )}

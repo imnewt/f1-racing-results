@@ -39,7 +39,7 @@ const Home = () => {
   };
 
   return (
-    <div className="py-16 text-center">
+    <div className="py-16">
       <div className="flex flex-col items-center w-full">
         <Title style={{ margin: 0 }}>F1 Racing Results</Title>
         <img className="mb-2" style={{ width: '5rem' }} src={F1CarEvolution} alt="F1 Car Evolution" />

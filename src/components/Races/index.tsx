@@ -1,16 +1,43 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 
 import { useFetchRaces } from 'hooks/races';
 import RaceList from './RaceList';
+import RaceDetail from './RaceDetail';
 
 export interface RacesProps {
   season: string;
 }
 
-const Races: React.FC<RacesProps> = ({ season }: RacesProps) => {
-  const { races, isLoading } = useFetchRaces(season);
+export interface RaceParams {
+  round?: string;
+  country?: string;
+  circuit?: string;
+}
 
-  return <RaceList races={races} isLoading={isLoading} />;
+const Races: React.FC<RacesProps> = ({ season }: RacesProps) => {
+  const [raceParams, setRaceParams] = useState<RaceParams>({});
+
+  const { races, isLoading: isFetchingRaces } = useFetchRaces({ season });
+
+  const hasSelectedRace = useMemo(() => !!Object.keys(raceParams).length, [raceParams]);
+
+  const handleRaceClick = (round: string, country: string, circuit: string) => {
+    setRaceParams({ round, country, circuit });
+  };
+
+  const handleClearRaceParams = () => {
+    setRaceParams({});
+  };
+
+  return (
+    <>
+      {hasSelectedRace ? (
+        <RaceDetail season={season} raceParams={raceParams} onClearRaceParams={handleClearRaceParams} />
+      ) : (
+        <RaceList races={races} isLoading={isFetchingRaces} onRaceClick={handleRaceClick} />
+      )}
+    </>
+  );
 };
 
 export default Races;

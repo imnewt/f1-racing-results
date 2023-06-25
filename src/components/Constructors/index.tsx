@@ -10,8 +10,8 @@ export interface ConstructorsProps {
 }
 
 const Drivers: React.FC<ConstructorsProps> = ({ season }: ConstructorsProps) => {
-  const { constructors, isLoading: isFetchingConstructors } = useFetchConstructors(season);
-  const { drivers, isLoading: isFetchingDrivers } = useFetchDrivers(season);
+  const { constructors, isLoading: isFetchingConstructors } = useFetchConstructors({ season });
+  const { drivers, isLoading: isFetchingDrivers } = useFetchDrivers({ season });
 
   const isLoading = useMemo(() => {
     return isFetchingConstructors || isFetchingDrivers;
