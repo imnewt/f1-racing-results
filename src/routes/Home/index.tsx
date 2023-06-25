@@ -3,6 +3,7 @@ import { Select, Typography } from 'antd';
 
 import { Drivers, Races, Constructors } from 'components';
 import Tab from './components/Tab';
+import F1CarEvolution from 'assets/gifs/f1-car-evolution.gif';
 import { FIRST_SEASON, CURRENT_SEASON } from 'utils/constants';
 
 const { Title, Text } = Typography;
@@ -38,9 +39,10 @@ const Home = () => {
   };
 
   return (
-    <div className="py-16 text-center">
+    <div className="py-16">
       <div className="flex flex-col items-center w-full">
-        <Title>F1 Racing Results</Title>
+        <Title style={{ margin: 0 }}>F1 Racing Results</Title>
+        <img className="mb-2" style={{ width: '5rem' }} src={F1CarEvolution} alt="F1 Car Evolution" />
         <div>
           <Text>Select season:</Text>
           <Select defaultValue={season} options={SEASON_LIST} onChange={handleChangeSeason} className="ml-2" />

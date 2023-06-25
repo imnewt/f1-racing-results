@@ -20,6 +20,17 @@ export interface Race {
   SprintResults?: SprintResult[];
 }
 
+export interface RaceResult {
+  season: string;
+  round: string;
+  url: string;
+  raceName: string;
+  Circuit: Circuit;
+  date: Date;
+  time: string;
+  Results: Result[];
+}
+
 export interface Session {
   date: Date;
   time: string;

@@ -8,7 +8,7 @@ export interface DriversProps {
 }
 
 const Drivers: React.FC<DriversProps> = ({ season }: DriversProps) => {
-  const { drivers, isLoading } = useFetchDrivers(season);
+  const { drivers, isLoading } = useFetchDrivers({ season });
 
   return <DriverList drivers={drivers} isLoading={isLoading} />;
 };
