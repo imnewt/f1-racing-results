@@ -20,7 +20,7 @@ const RaceList: React.FC<RaceListProps> = ({ races, isLoading, onRaceClick }: Ra
           <div
             key={race.round}
             onClick={() => onRaceClick(race.round, race.Circuit.Location.country, race.Circuit.circuitName)}
-            className="flex items-center hover:bg-blue-100 cursor-pointer px-4 py-2"
+            className="flex items-center border-b hover:bg-blue-100 cursor-pointer p-4"
           >
             <div className="text-center w-6">
               <Text>{race.round}.</Text>

@@ -35,7 +35,7 @@ const ConstructorList: React.FC<ConstructorListProps> = ({
         renderItem={(constructor) => (
           <div
             key={constructor.Constructor.constructorId}
-            className="flex items-center hover:bg-blue-100 cursor-pointer px-4 py-2"
+            className="flex items-center hover:bg-blue-100 cursor-pointer p-4 border-b"
           >
             <div className="text-center w-6">{constructor.position}.</div>
             <div className="mx-2 rounded" style={{ width: '2.5rem', height: '1.75rem' }}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Empty, Spin, Typography } from 'antd';
+import { Divider, Empty, Spin, Typography } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 
 import { useFetchRaceDetail } from 'hooks/races';
@@ -56,7 +56,9 @@ const RaceDetail: React.FC<RaceDetailProps> = ({ season, raceParams, onClearRace
               <Text>{race.raceName}</Text>
             </div>
           </div>
+          <Divider />
           <RaceWeekend race={race} />
+          <Divider />
           <Circuit race={race} circuit={circuit} />
         </div>
       </Spin>

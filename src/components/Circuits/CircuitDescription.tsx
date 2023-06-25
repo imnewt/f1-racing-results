@@ -1,10 +1,8 @@
 import React from 'react';
-import { Spin, Typography } from 'antd';
-import { CalendarOutlined } from '@ant-design/icons';
+import { FileTextOutlined } from '@ant-design/icons';
 
 import { useFetchCircuitDescription } from 'hooks/circuit';
-
-const { Text } = Typography;
+import { DetailedInfo } from 'shared-components';
 
 export interface CircuitDescriptionProps {
   circuit: string;
@@ -14,16 +12,12 @@ const CircuitDescription: React.FC<CircuitDescriptionProps> = ({ circuit }: Circ
   const { circuitDescription, isLoading } = useFetchCircuitDescription({ circuit });
 
   return (
-    <Spin spinning={isLoading}>
-      <div className="flex">
-        <CalendarOutlined className="text-lg mt-1" />
-        <div className="ml-4">
-          <Text className="font-bold">Description</Text>
-          <br />
-          <Text>{circuitDescription?.replace(/\. /g, '. \n\n')}</Text>
-        </div>
-      </div>
-    </Spin>
+    <DetailedInfo
+      Icon={<FileTextOutlined />}
+      title="Description"
+      content={circuitDescription?.replace(/\. /g, '. \n\n')}
+      isLoading={isLoading}
+    />
   );
 };
 
