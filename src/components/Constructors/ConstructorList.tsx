@@ -25,7 +25,7 @@ const ConstructorList: React.FC<ConstructorListProps> = ({
         ?.filter((driver) => driver.Constructors[0].constructorId === constructorId)
         .slice(0, 2)
         .map<React.ReactNode>((driver) => driver.Driver.familyName)
-        .reduce((prev, curr) => [prev, ' / ', curr]);
+        .join(' / ');
     },
     [drivers]
   );
