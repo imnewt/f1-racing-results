@@ -10,12 +10,14 @@ export interface ConstructorListProps {
   constructors: ConstructorStanding[];
   drivers: DriverStanding[];
   isLoading: boolean;
+  onConstructorClick: (constructorId: string) => void;
 }
 
 const ConstructorList: React.FC<ConstructorListProps> = ({
   constructors,
   drivers,
   isLoading,
+  onConstructorClick,
 }: ConstructorListProps) => {
   const handleGetDriverNames = useCallback(
     (constructorId: string) => {
@@ -35,6 +37,7 @@ const ConstructorList: React.FC<ConstructorListProps> = ({
         renderItem={(constructor) => (
           <div
             key={constructor.Constructor.constructorId}
+            onClick={() => onConstructorClick(constructor.Constructor.constructorId)}
             className="flex items-center hover:bg-blue-100 cursor-pointer p-4 border-b"
           >
             <div className="text-center w-6">{constructor.position}.</div>

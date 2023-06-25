@@ -10,7 +10,12 @@ export interface DetailedInfoProps {
   isLoading?: boolean;
 }
 
-const DetailedInfo: React.FC<DetailedInfoProps> = ({ Icon, title, content, isLoading = false }: DetailedInfoProps) => {
+const DetailedInfo: React.FC<DetailedInfoProps> = ({
+  Icon,
+  title,
+  content = '',
+  isLoading = false,
+}: DetailedInfoProps) => {
   return (
     <Spin spinning={isLoading}>
       <div className="flex my-2">
