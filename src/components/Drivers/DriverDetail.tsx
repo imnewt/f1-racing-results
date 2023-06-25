@@ -105,7 +105,9 @@ const DriverDetail: React.FC<DriverDetailProps> = ({ season, driverId, onClearDr
           <DriverOverview driverId={driverStat.DriverStandings[0].Driver.driverId} />
           <Divider />
           <div className="mt-6">
-            <Text className="text-xl font-bold">{driverStat?.season} Team</Text>
+            <div className="my-2">
+              <Text className="text-xl font-bold ">{driverStat?.season} Team</Text>
+            </div>
             <div className="flex items-center">
               <div style={{ width: '2.5rem', height: '1.75rem' }}>
                 <img

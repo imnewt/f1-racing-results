@@ -3,8 +3,9 @@ import { Select, Typography } from 'antd';
 
 import { Drivers, Races, Constructors } from 'components';
 import Tab from './components/Tab';
-import F1CarEvolution from 'assets/gifs/f1-car-evolution.gif';
 import { FIRST_SEASON, CURRENT_SEASON } from 'utils/constants';
+
+import F1CarEvolution from 'assets/gifs/f1-car-evolution.gif';
 
 const { Title, Text } = Typography;
 
@@ -48,7 +49,7 @@ const Home = () => {
           <Select defaultValue={season} options={SEASON_LIST} onChange={handleChangeSeason} className="ml-2" />
         </div>
       </div>
-      <div className="border rounded mt-8 mx-16">
+      <div className="border rounded mt-8 sm:mx-16">
         <div className="flex border-b">
           {TAB_KEYS.map((tabKey) => (
             <Tab key={tabKey} tabKey={tabKey} activeTab={currentTab} onChangeTab={handleChangeTab} />

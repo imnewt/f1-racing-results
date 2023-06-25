@@ -23,7 +23,7 @@ const DriverList: React.FC<DriverListProps> = ({ drivers, isLoading, onDriverCli
             className="flex items-center hover:bg-blue-100 cursor-pointer p-4 border-b"
           >
             <div className="text-center w-6">{driver.position}.</div>
-            <div className={`mx-2 team-line team-${driver.Constructors[0].constructorId}`} />
+            <div className={`mx-2 team-line team-${driver.Constructors[0].constructorId} bg-black`} />
             <div className="text-left" style={{ flexGrow: 1 }}>
               <Text>
                 {driver.Driver.givenName} <Text className="font-bold">{driver.Driver.familyName}</Text>

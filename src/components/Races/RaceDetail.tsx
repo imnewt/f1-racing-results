@@ -58,7 +58,6 @@ const RaceDetail: React.FC<RaceDetailProps> = ({ season, raceParams, onClearRace
           </div>
           <Divider />
           <RaceWeekend race={race} />
-          <Divider />
           <Circuit race={race} circuit={circuit} />
         </div>
       </Spin>
