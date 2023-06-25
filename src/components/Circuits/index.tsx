@@ -20,7 +20,7 @@ const Circuit: React.FC<CircuitProps> = ({ race, circuit }: CircuitProps) => {
       <Text className="text-lg font-bold">Circuit</Text>
       <div className="flex">
         <div className="w-6/12 mr-2">
-          <div className="mt-2 border p-4" style={{ height: '20rem' }}>
+          <div className="my-2 border p-4" style={{ height: '20rem' }}>
             <img
               src={`assets/img/tracks/${race.Circuit.circuitId}.svg`}
               alt={race.Circuit.circuitName}

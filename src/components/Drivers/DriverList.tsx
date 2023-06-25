@@ -8,15 +8,20 @@ const { Text } = Typography;
 export interface DriverListProps {
   drivers: DriverStanding[];
   isLoading: boolean;
+  onDriverClick: (driverId: string) => void;
 }
 
-const DriverList: React.FC<DriverListProps> = ({ drivers, isLoading }: DriverListProps) => {
+const DriverList: React.FC<DriverListProps> = ({ drivers, isLoading, onDriverClick }: DriverListProps) => {
   return (
     <Spin spinning={isLoading}>
       <List
         dataSource={drivers}
         renderItem={(driver) => (
-          <div key={driver.Driver.driverId} className="flex items-center hover:bg-blue-100 cursor-pointer px-4 py-2">
+          <div
+            key={driver.Driver.driverId}
+            onClick={() => onDriverClick(driver.Driver.driverId)}
+            className="flex items-center hover:bg-blue-100 cursor-pointer p-4 border-b"
+          >
             <div className="text-center w-6">{driver.position}.</div>
             <div className={`mx-2 team-line team-${driver.Constructors[0].constructorId}`} />
             <div className="text-left" style={{ flexGrow: 1 }}>
