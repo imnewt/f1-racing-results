@@ -20,15 +20,24 @@ const RaceDetail: React.FC<RaceDetailProps> = ({ season, raceParams, onClearRace
   const { round = '', circuit = '' } = raceParams;
   const { race, isLoading: isFetchingRaceDetail } = useFetchRaceDetail({ season, round });
 
-  if (!race || !race.FirstPractice || !race.FirstPractice.time)
+  if (!race)
     return (
       <Spin spinning={isFetchingRaceDetail}>
-        <Empty />
+        <div className="px-8 py-6">
+          <div className="flex items-center">
+            <ArrowLeftOutlined className="text-xl" onClick={onClearRaceParams} />
+            <Text className="font-bold text-xl ml-4">Round {round}</Text>
+          </div>
+          <Empty />
+        </div>
       </Spin>
     );
   return (
     <div className="px-8 py-6">
-      <ArrowLeftOutlined className="text-xl" onClick={onClearRaceParams} />
+      <div className="flex items-center">
+        <ArrowLeftOutlined className="text-xl" onClick={onClearRaceParams} />
+        <Text className="font-bold text-xl ml-4">Round {round}</Text>
+      </div>
       <Spin spinning={isFetchingRaceDetail}>
         <div className="mt-6">
           <div className="flex items-center">

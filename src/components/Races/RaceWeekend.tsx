@@ -10,6 +10,7 @@ export interface RaceWeekendProps {
 }
 
 const RaceWeekend: React.FC<RaceWeekendProps> = ({ race }: RaceWeekendProps) => {
+  if (!race.FirstPractice || !race.FirstPractice.time) return <></>;
   return (
     <div className="mt-6">
       <Text className="text-lg font-bold">Race Weekend</Text>
