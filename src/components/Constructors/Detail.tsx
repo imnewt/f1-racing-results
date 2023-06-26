@@ -3,6 +3,7 @@ import { Divider, Empty, Spin } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 
 import { useFetchConstructorStatistics, useFetchConstructorSeasonStatistics } from 'hooks/constructors';
+import { ConstructorStatistic } from 'models/Constructor';
 import SeasonStatistics from './SeasonStatistics';
 import Drivers from './Drivers';
 import SinceDebut from './SinceDebut';
@@ -27,16 +28,21 @@ const Detail: React.FC<DetailProps> = ({ season, constructorId, onClearConstruct
   }, [isFetchingConstructorStat, isFetchingConstructorAllStats]);
 
   const sortedStatistics = useMemo(() => {
-    return statistics?.sort((prevSeason: any, nextSeason: any) => prevSeason.season - nextSeason.season) || [];
+    return (
+      statistics?.sort(
+        (prevSeason: ConstructorStatistic, nextSeason: ConstructorStatistic) => +prevSeason.season - +nextSeason.season
+      ) || []
+    );
   }, [statistics]);
 
   const totalChampionships = useMemo(() => {
-    return sortedStatistics.filter((season: any) => season.ConstructorStandings[0].position === '1').length;
+    return sortedStatistics.filter((season: ConstructorStatistic) => season.ConstructorStandings[0].position === '1')
+      .length;
   }, [sortedStatistics]);
 
   const totalRaceWins = useMemo(() => {
     return sortedStatistics.reduce(
-      (sum: number, season: any) => sum + parseInt(season.ConstructorStandings[0].wins),
+      (sum: number, season: ConstructorStatistic) => sum + parseInt(season.ConstructorStandings[0].wins),
       0
     );
   }, [sortedStatistics]);

@@ -1,3 +1,5 @@
+import { Driver } from './Driver';
+
 export interface Constructor {
   constructorId: string;
   url: string;
@@ -11,4 +13,16 @@ export interface ConstructorStanding {
   points: string;
   wins: string;
   Constructor: Constructor;
+}
+
+export interface ConstructorStatistic {
+  ConstructorStandings: ConstructorStanding[];
+  round: string;
+  season: string;
+}
+
+export interface ConstructorDriver {
+  Drivers: Driver[];
+  constructorId: string;
+  season: string;
 }

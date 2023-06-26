@@ -2,6 +2,7 @@ import React from 'react';
 import { Spin, Typography } from 'antd';
 
 import { useFetchConstructorDrivers } from 'hooks/constructors';
+import { Driver } from 'models/Driver';
 
 const { Text } = Typography;
 
@@ -20,7 +21,7 @@ const Drivers: React.FC<DriversProps> = ({ season, constructorId }: DriversProps
     <Spin spinning={isLoading}>
       <Text className="text-xl font-bold">{drivers?.season} Drivers</Text>
       {drivers &&
-        drivers.Drivers.map((driver: any) => (
+        drivers.Drivers.map((driver: Driver) => (
           <div key={driver.driverId} className="flex items-center my-2">
             <div className={`flex justify-center rounded-md w-8 h-8 items-center team-${constructorId}`}>
               <Text className="text-white">{driver.permanentNumber}</Text>

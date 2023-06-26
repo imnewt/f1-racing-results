@@ -19,3 +19,9 @@ export interface DriverStanding {
   Driver: Driver;
   Constructors: Constructor[];
 }
+
+export interface DriverStatistic {
+  DriverStandings: DriverStanding[];
+  round: string;
+  season: string;
+}

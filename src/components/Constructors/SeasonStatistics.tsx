@@ -2,23 +2,25 @@ import React, { useMemo } from 'react';
 import { Typography } from 'antd';
 import Chart from 'react-apexcharts';
 
+import { ConstructorStatistic } from 'models/Constructor';
+
 const { Text } = Typography;
 
 export interface SeasonStatisticsProps {
-  statistics: any;
+  statistics: ConstructorStatistic[];
 }
 
 const SeasonStatistics: React.FC<SeasonStatisticsProps> = ({ statistics }: SeasonStatisticsProps) => {
   const chartXAxisCategories = useMemo(() => {
-    return statistics.map((statistic: any) => statistic.season) || [];
+    return statistics.map((statistic: ConstructorStatistic) => statistic.season) || [];
   }, [statistics]);
 
   const chartYAxisWinsData = useMemo(() => {
-    return statistics.map((statistic: any) => statistic.ConstructorStandings[0].wins) || [];
+    return statistics.map((statistic: ConstructorStatistic) => +statistic.ConstructorStandings[0].wins) || [];
   }, [statistics]);
 
   const chartYAxisPointsData = useMemo(() => {
-    return statistics.map((statistic: any) => statistic.ConstructorStandings[0].points) || [];
+    return statistics.map((statistic: ConstructorStatistic) => +statistic.ConstructorStandings[0].points) || [];
   }, [statistics]);
 
   const chartOptions = useMemo(() => {
