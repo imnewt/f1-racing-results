@@ -16,7 +16,7 @@ export const fetchDriverAchivements =
     return data;
   };
 
-export const fetchDriverAllStats =
+export const fetchDriverStatistics =
   ({ driverId }: { driverId: string }) =>
   async () => {
     const response = await fetch(`${BASE_URL}/drivers/${driverId}/driverStandings.json?limit=60`);
@@ -24,7 +24,7 @@ export const fetchDriverAllStats =
     return data;
   };
 
-export const fetchDriverStat =
+export const fetchDriverSeasonStatistics =
   ({ season, driverId }: { season: string; driverId: string }) =>
   async () => {
     const response = await fetch(`${BASE_URL}/${season}/drivers/${driverId}/driverStandings.json?limit=60`);

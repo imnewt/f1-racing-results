@@ -2,8 +2,8 @@ import useSWR from 'swr';
 
 import {
   fetchDriverDescription,
-  fetchDriverStat,
-  fetchDriverAllStats,
+  fetchDriverSeasonStatistics,
+  fetchDriverStatistics,
   fetchDrivers,
   fetchDriverAchivements,
 } from 'apis/drivers';
@@ -31,22 +31,22 @@ export const useFetchDriverAchivements = ({ driverId }: { driverId: string }) =>
   };
 };
 
-export const useFetchDriverAllStats = ({ driverId }: { driverId: string }) => {
+export const useFetchDriverStatistics = ({ driverId }: { driverId: string }) => {
   const { data, isValidating } = useSWR(
     `${BASE_URL}/drivers/${driverId}/driverStandings.json?limit=60`,
-    fetchDriverAllStats({ driverId })
+    fetchDriverStatistics({ driverId })
   );
 
-  return { driverStats: data?.MRData?.StandingsTable?.StandingsLists, isLoading: isValidating };
+  return { statistics: data?.MRData?.StandingsTable?.StandingsLists, isLoading: isValidating };
 };
 
-export const useFetchDriverStat = ({ season, driverId }: { season: string; driverId: string }) => {
+export const useFetchDriverSeasonStatistics = ({ season, driverId }: { season: string; driverId: string }) => {
   const { data, isValidating } = useSWR(
     `${BASE_URL}/${season}/drivers/${driverId}/driverStandings.json?limit=60`,
-    fetchDriverStat({ season, driverId })
+    fetchDriverSeasonStatistics({ season, driverId })
   );
 
-  return { driverStat: data?.MRData?.StandingsTable?.StandingsLists?.[0], isLoading: isValidating };
+  return { seasonStatistics: data?.MRData?.StandingsTable?.StandingsLists?.[0], isLoading: isValidating };
 };
 
 export const useFetchDriverDescription = ({ driverUrl }: { driverUrl: string }) => {
@@ -55,5 +55,5 @@ export const useFetchDriverDescription = ({ driverUrl }: { driverUrl: string }) 
     fetchDriverDescription({ driverUrl })
   );
 
-  return { driverDescription: data, isLoading: isValidating };
+  return { description: data, isLoading: isValidating };
 };

@@ -5,7 +5,7 @@ import { Race } from 'models/Race';
 import FirstGrandPrix from './FirstGrandPrix';
 import LapNumber from './LapNumber';
 import LapRecord from './LapRecord';
-import CircuitDescription from './CircuitDescription';
+import Description from './Description';
 
 const { Text } = Typography;
 
@@ -33,7 +33,7 @@ const Circuit: React.FC<CircuitProps> = ({ race, circuit }: CircuitProps) => {
           <FirstGrandPrix circuitId={race.Circuit.circuitId} />
           <LapNumber circuitId={race.Circuit.circuitId} />
           <LapRecord circuitId={race.Circuit.circuitId} />
-          <CircuitDescription circuit={circuit} />
+          <Description circuit={circuit} />
         </div>
       </div>
     </div>

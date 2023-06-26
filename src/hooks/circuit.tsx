@@ -10,7 +10,7 @@ export const useFetchCircuitDescription = ({ circuit }: { circuit: string }) => 
     fetchCircuitDescription({ circuit })
   );
 
-  return { circuitDescription: data, isLoading: isValidating };
+  return { description: data, isLoading: isValidating };
 };
 
 export const useFetchCircuitRaces = ({ circuitId }: { circuitId: string }) => {

@@ -10,6 +10,7 @@ export interface LapRecordProps {
 
 const LapRecord: React.FC<LapRecordProps> = ({ circuitId }: LapRecordProps) => {
   const { record, isLoading } = useFetchCircuitLapRecord({ circuitId });
+
   return (
     <DetailedInfo
       Icon={<FieldTimeOutlined />}

@@ -1,24 +1,19 @@
 import React, { useCallback } from 'react';
-import { Badge, List, Spin, Typography } from 'antd';
+import { Badge, List as AntList, Spin, Typography } from 'antd';
 
 import { ConstructorStanding } from 'models/Constructor';
 import { DriverStanding } from 'models/Driver';
 
 const { Text } = Typography;
 
-export interface ConstructorListProps {
+export interface ListProps {
   constructors: ConstructorStanding[];
   drivers: DriverStanding[];
   isLoading: boolean;
   onConstructorClick: (constructorId: string) => void;
 }
 
-const ConstructorList: React.FC<ConstructorListProps> = ({
-  constructors,
-  drivers,
-  isLoading,
-  onConstructorClick,
-}: ConstructorListProps) => {
+const List: React.FC<ListProps> = ({ constructors, drivers, isLoading, onConstructorClick }: ListProps) => {
   const handleGetDriverNames = useCallback(
     (constructorId: string) => {
       return drivers
@@ -32,7 +27,7 @@ const ConstructorList: React.FC<ConstructorListProps> = ({
 
   return (
     <Spin spinning={isLoading}>
-      <List
+      <AntList
         dataSource={constructors}
         renderItem={(constructor) => (
           <div
@@ -66,4 +61,4 @@ const ConstructorList: React.FC<ConstructorListProps> = ({
   );
 };
 
-export default ConstructorList;
+export default List;

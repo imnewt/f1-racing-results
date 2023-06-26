@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 import { useFetchDrivers } from 'hooks/drivers';
-import DriverList from './DriverList';
-import DriverDetail from './DriverDetail';
+import List from './List';
+import Detail from './Detail';
 
 export interface DriversProps {
   season: string;
@@ -22,9 +22,9 @@ const Drivers: React.FC<DriversProps> = ({ season }: DriversProps) => {
   };
 
   return selectedDriverId ? (
-    <DriverDetail season={season} driverId={selectedDriverId} onClearDriverId={handleClearDriverId} />
+    <Detail season={season} driverId={selectedDriverId} onClearDriverId={handleClearDriverId} />
   ) : (
-    <DriverList drivers={drivers} isLoading={isLoading} onDriverClick={handleDriverClick} />
+    <List drivers={drivers} isLoading={isLoading} onDriverClick={handleDriverClick} />
   );
 };
 

@@ -1,20 +1,20 @@
 import React from 'react';
-import { Badge, List, Spin, Typography } from 'antd';
+import { Badge, List as AntList, Spin, Typography } from 'antd';
 
 import { DriverStanding } from 'models/Driver';
 
 const { Text } = Typography;
 
-export interface DriverListProps {
+export interface ListProps {
   drivers: DriverStanding[];
   isLoading: boolean;
   onDriverClick: (driverId: string) => void;
 }
 
-const DriverList: React.FC<DriverListProps> = ({ drivers, isLoading, onDriverClick }: DriverListProps) => {
+const List: React.FC<ListProps> = ({ drivers, isLoading, onDriverClick }: ListProps) => {
   return (
     <Spin spinning={isLoading}>
-      <List
+      <AntList
         dataSource={drivers}
         renderItem={(driver) => (
           <div
@@ -39,4 +39,4 @@ const DriverList: React.FC<DriverListProps> = ({ drivers, isLoading, onDriverCli
   );
 };
 
-export default DriverList;
+export default List;

@@ -1,11 +1,11 @@
 import useSWR from 'swr';
 
 import {
-  fetchConstructorAllStats,
+  fetchConstructorStatistics,
   fetchConstructorDescription,
   fetchConstructorDrivers,
   fetchConstructors,
-  fetchConstructorStat,
+  fetchConstructorSeasonStatistics,
 } from 'apis/constructors';
 import { BASE_URL } from 'utils/constants';
 
@@ -27,25 +27,31 @@ export const useFetchConstructorDrivers = ({ season, constructorId }: { season: 
     fetchConstructorDrivers({ season, constructorId })
   );
 
-  return { constructorDrivers: data?.MRData?.DriverTable, isLoading: isValidating };
+  return { drivers: data?.MRData?.DriverTable, isLoading: isValidating };
 };
 
-export const useFetchConstructorStat = ({ season, constructorId }: { season: string; constructorId: string }) => {
+export const useFetchConstructorSeasonStatistics = ({
+  season,
+  constructorId,
+}: {
+  season: string;
+  constructorId: string;
+}) => {
   const { data, isValidating } = useSWR(
     `${BASE_URL}/${season}/constructors/${constructorId}/constructorStandings.json?limit=500`,
-    fetchConstructorStat({ season, constructorId })
+    fetchConstructorSeasonStatistics({ season, constructorId })
   );
 
-  return { constructorStat: data?.MRData?.StandingsTable?.StandingsLists?.[0], isLoading: isValidating };
+  return { seasonStatistics: data?.MRData?.StandingsTable?.StandingsLists?.[0], isLoading: isValidating };
 };
 
-export const useFetchConstructorAllStats = ({ constructorId }: { constructorId: string }) => {
+export const useFetchConstructorStatistics = ({ constructorId }: { constructorId: string }) => {
   const { data, isValidating } = useSWR(
     `${BASE_URL}/constructors/${constructorId}/constructorStandings.json?limit=500`,
-    fetchConstructorAllStats({ constructorId })
+    fetchConstructorStatistics({ constructorId })
   );
 
-  return { constructorStats: data?.MRData?.StandingsTable?.StandingsLists, isLoading: isValidating };
+  return { statistics: data?.MRData?.StandingsTable?.StandingsLists, isLoading: isValidating };
 };
 
 export const useFetchConstructorDescription = ({ constructorUrl }: { constructorUrl: string }) => {
@@ -56,5 +62,5 @@ export const useFetchConstructorDescription = ({ constructorUrl }: { constructor
     fetchConstructorDescription({ constructorUrl })
   );
 
-  return { constructorDescription: data, isLoading: isValidating };
+  return { description: data, isLoading: isValidating };
 };
