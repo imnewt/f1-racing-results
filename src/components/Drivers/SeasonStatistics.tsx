@@ -3,6 +3,7 @@ import { Spin, Typography } from 'antd';
 import Chart from 'react-apexcharts';
 
 import { useFetchDriverStatistics } from 'hooks/drivers';
+import { DriverStatistic } from 'models/Driver';
 
 const { Text } = Typography;
 
@@ -14,19 +15,23 @@ const SeasonStatistics: React.FC<SeasonStatisticsProps> = ({ driverId }: SeasonS
   const { statistics, isLoading } = useFetchDriverStatistics({ driverId });
 
   const sortedStatistics = useMemo(() => {
-    return statistics?.sort((prevSeason: any, nextSeason: any) => prevSeason.season - nextSeason.season) || [];
+    return (
+      statistics?.sort(
+        (prevSeason: DriverStatistic, nextSeason: DriverStatistic) => +prevSeason.season - +nextSeason.season
+      ) || []
+    );
   }, [statistics]);
 
   const chartXAxisCategories = useMemo(() => {
-    return sortedStatistics.map((statistic: any) => statistic.season) || [];
+    return sortedStatistics.map((statistic: DriverStatistic) => statistic.season) || [];
   }, [sortedStatistics]);
 
   const chartYAxisRacesData = useMemo(() => {
-    return sortedStatistics.map((statistic: any) => statistic.round) || [];
+    return sortedStatistics.map((statistic: DriverStatistic) => statistic.round) || [];
   }, [sortedStatistics]);
 
   const chartYAxisPointsData = useMemo(() => {
-    return sortedStatistics.map((statistic: any) => statistic.DriverStandings[0].points) || [];
+    return sortedStatistics.map((statistic: DriverStatistic) => statistic.DriverStandings[0].points) || [];
   }, [sortedStatistics]);
 
   const chartOptions = useMemo(() => {
