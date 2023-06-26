@@ -16,7 +16,7 @@ export const fetchConstructorAchivements =
     return data;
   };
 
-export const fetchConstructorStat =
+export const fetchConstructorSeasonStatistics =
   ({ season, constructorId }: { season: string; constructorId: string }) =>
   async () => {
     const response = await fetch(
@@ -26,7 +26,7 @@ export const fetchConstructorStat =
     return data;
   };
 
-export const fetchConstructorAllStats =
+export const fetchConstructorStatistics =
   ({ constructorId }: { constructorId: string }) =>
   async () => {
     const response = await fetch(`${BASE_URL}/constructors/${constructorId}/constructorStandings.json?limit=500`);

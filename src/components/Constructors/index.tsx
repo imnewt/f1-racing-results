@@ -3,8 +3,8 @@ import React, { useMemo, useState } from 'react';
 import { useFetchDrivers } from 'hooks/drivers';
 import { useFetchConstructors } from 'hooks/constructors';
 
-import ConstructorList from './ConstructorList';
-import ConstructorDetail from './ConstructorDetail';
+import List from './List';
+import Detail from './Detail';
 
 export interface ConstructorsProps {
   season: string;
@@ -29,13 +29,9 @@ const Drivers: React.FC<ConstructorsProps> = ({ season }: ConstructorsProps) => 
   };
 
   return selectedConstructorId ? (
-    <ConstructorDetail
-      season={season}
-      constructorId={selectedConstructorId}
-      onClearConstructorId={handleClearConstructorId}
-    />
+    <Detail season={season} constructorId={selectedConstructorId} onClearConstructorId={handleClearConstructorId} />
   ) : (
-    <ConstructorList
+    <List
       constructors={constructors}
       drivers={drivers}
       isLoading={isLoading}

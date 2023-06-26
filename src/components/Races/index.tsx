@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from 'react';
 
 import { useFetchRaces } from 'hooks/races';
-import RaceList from './RaceList';
-import RaceDetail from './RaceDetail';
+import List from './List';
+import Detail from './Detail';
 
 export interface RacesProps {
   season: string;
@@ -32,9 +32,9 @@ const Races: React.FC<RacesProps> = ({ season }: RacesProps) => {
   return (
     <>
       {hasSelectedRace ? (
-        <RaceDetail season={season} raceParams={raceParams} onClearRaceParams={handleClearRaceParams} />
+        <Detail season={season} raceParams={raceParams} onClearRaceParams={handleClearRaceParams} />
       ) : (
-        <RaceList races={races} isLoading={isFetchingRaces} onRaceClick={handleRaceClick} />
+        <List races={races} isLoading={isFetchingRaces} onRaceClick={handleRaceClick} />
       )}
     </>
   );
