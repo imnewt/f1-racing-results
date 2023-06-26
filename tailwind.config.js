@@ -1,0 +1,87 @@
+module.exports = {
+  theme: {
+    fontFamily: {
+      sans: [
+        'Poppins',
+        'system-ui',
+        '-apple-system',
+        'BlinkMacSystemFont',
+        'Segoe UI',
+        'Open Sans',
+        'Helvetica Neue',
+        'Arial',
+        'Noto Sans',
+        'sans-serif',
+        'Apple Color Emoji',
+        'Segoe UI Emoji',
+        'Segoe UI Symbol',
+        'Noto Color Emoji',
+      ],
+    },
+
+    extend: {
+      colors: {
+        primary: '#1890ff',
+        brand: {
+          100: '#f0f7ff',
+          200: '#c7dfff',
+          300: '#9ec5ff',
+          400: '#74a6fc',
+          500: '#477ff0',
+          600: '#3260c9',
+          700: '#2143a3',
+          800: '#132c7d',
+          900: '#0c1b57',
+        },
+        gray: {
+          100: '#fafafa',
+          200: '#f5f5f5',
+          300: '#f0f2f5',
+          400: '#d9d9d9',
+          500: '#bfbfbf',
+          600: '#8c8c8c',
+          700: '#595959',
+          800: '#262626',
+          900: '#000000',
+        },
+      },
+      borderRadius: {
+        xl: '1rem',
+      },
+      inset: {
+        50: '50%',
+        100: '100%',
+      },
+      width: {
+        72: '20rem',
+        84: '30rem',
+        96: '45rem',
+        360: '360px',
+      },
+      height: {
+        640: '640px',
+        report: '30rem',
+      },
+    },
+  },
+  variants: {
+    borderColor: ['responsive', 'hover', 'focus', 'active'],
+    borderRadius: ['responsive', 'first', 'last'],
+    borderWidth: ['responsive', 'last'],
+    textColor: ['responsive', 'hover', 'focus', 'active', 'disabled'],
+    outline: ['responsive', 'focus', 'active'],
+    padding: ['responsive', 'hover', 'focus', 'first', 'last'],
+    margin: ['responsive', 'hover', 'focus', 'first', 'last'],
+    boxShadow: ['responsive', 'hover', 'focus', 'active'],
+    backgroundColor: ['responsive', 'hover', 'focus', 'active', 'group-hover', 'disabled'],
+    zIndex: ['responsive', 'hover', 'focus'],
+    scale: ['responsive', 'hover', 'focus', 'group-hover'],
+    transitionProperty: ['responsive', 'active'],
+    display: ['responsive', 'hover', 'group-hover'],
+    opacity: ['responsive', 'hover', 'group-hover'],
+  },
+  plugins: [],
+  future: {
+    removeDeprecatedGapUtilities: true,
+  },
+};
